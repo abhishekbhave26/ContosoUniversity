@@ -20,7 +20,9 @@ namespace ContosoUniversity.Models
         [Display(Name = "First Name")]
         public string FirstMidName { get; set; }
 
-
+        [StringLength(50)]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        [Display(Name = "Email ID")]
         public string Email { get; set; }
 
         [Display(Name = "Enrollment Date")]

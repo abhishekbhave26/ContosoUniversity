@@ -98,7 +98,7 @@ namespace ContosoUniversity.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("EnrollmentDate,FirstMidName,LastName")] Student student)
+        public async Task<IActionResult> Create([Bind("FirstMidName,LastName,Email,EnrollmentDate")] Student student)
         {
             try
             {
@@ -145,7 +145,7 @@ namespace ContosoUniversity.Controllers
                 return NotFound();
             }
             var studentToUpdate = await _context.Students.FirstOrDefaultAsync(s => s.ID == id);
-            if (await TryUpdateModelAsync<Student>(studentToUpdate,"",s => s.FirstMidName, s => s.LastName, s => s.EnrollmentDate))
+            if (await TryUpdateModelAsync<Student>(studentToUpdate,"",s => s.FirstMidName, s => s.LastName, s => s.Email, s => s.EnrollmentDate))
             {
                 try
                 {
