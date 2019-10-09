@@ -68,7 +68,7 @@ namespace ContosoUniversity.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CourseID,Credits,DepartmentID,Title")] Course course)
+        public async Task<IActionResult> Create([Bind("CourseID,Credits,DepartmentID,Title,CourseDescription")] Course course)
         {
 
             try
@@ -130,7 +130,7 @@ namespace ContosoUniversity.Controllers
 
             if (await TryUpdateModelAsync<Course>(courseToUpdate,
                 "",
-                c => c.Credits, c => c.DepartmentID, c => c.Title))
+                c => c.Credits, c => c.DepartmentID, c => c.Title, c => c.CourseDescription))
             {
                 try
                 {

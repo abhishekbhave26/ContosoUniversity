@@ -16,6 +16,8 @@ namespace ContosoUniversity.Models
         [Range(0, 5), Required]
         public int Credits { get; set; }
 
+        public string CourseDescription { get; set; }
+
         public int DepartmentID { get; set; }
 
         public Department Department { get; set; }
