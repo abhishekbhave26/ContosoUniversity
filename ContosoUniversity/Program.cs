@@ -17,7 +17,6 @@ namespace ContosoUniversity
         public static void Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
-
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -30,6 +29,7 @@ namespace ContosoUniversity
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(ex, "An error occurred while seeding the database.");
+
                 }
             }
 

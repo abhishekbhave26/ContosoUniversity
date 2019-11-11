@@ -19,6 +19,7 @@ namespace ContosoUniversity
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            Console.WriteLine("Maybe This is start");
         }
 
         public IConfiguration Configuration { get; }
